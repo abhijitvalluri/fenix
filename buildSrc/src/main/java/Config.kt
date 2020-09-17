@@ -4,6 +4,7 @@ import java.lang.RuntimeException
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.time.format.TextStyle
 import java.util.Date
 import java.util.Locale
 
@@ -40,8 +41,9 @@ object Config {
     fun generateBuildDate(): String {
         val dateTime = LocalDateTime.now()
         val timeFormatter = DateTimeFormatter.ofPattern("h:mm a")
+        val monthShortName = dateTime.month.getDisplayName(TextStyle.SHORT, Locale.ENGLISH)
 
-        return "${dateTime.dayOfWeek.toString().toLowerCase().capitalize()} ${dateTime.monthValue}/${dateTime.dayOfMonth} @ ${timeFormatter.format(dateTime)}"
+        return "${dateTime.dayOfWeek.toString().toLowerCase().capitalize()}, $monthShortName ${dateTime.dayOfMonth} @ ${timeFormatter.format(dateTime)}"
     }
 
     private val fennecBaseVersionCode by lazy {

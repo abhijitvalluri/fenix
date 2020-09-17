@@ -1,25 +1,21 @@
-# Iceraven Browser! [![Build Status](https://travis-ci.org/fork-maintainers/iceraven-browser.svg?branch=fork)](https://travis-ci.org/fork-maintainers/iceraven-browser) ![Android build](https://github.com/fork-maintainers/iceraven-browser/workflows/Android%20build/badge.svg)
+# Firefox²! ![Android build](https://github.com/abhijitvalluri/firefox2/workflows/Android%20build/badge.svg)
 
 Definitely not brought to you by Mozilla!
 
-Iceraven Browser is a web browser for Android, based on [Mozilla's Fenix version of Firefox](https://github.com/mozilla-mobile/fenix/), [GeckoView](https://mozilla.github.io/geckoview/) and [Mozilla Android Components](https://mozac.org/).
+Firefox² is a web browser for Android, based on [Mozilla's Fenix version of Firefox](https://github.com/mozilla-mobile/fenix/), [GeckoView](https://mozilla.github.io/geckoview/) and [Mozilla Android Components](https://mozac.org/).
 
 Our goal is to be a close fork of the new Firefox for Android that seeks to provide users with more options, more opportunities to customize (including a broad extension library), and more information about the pages they visit and how their browsers are interacting with those pages.
 
 Notable features include:
   * `about:config` support
-  * The ability to *attempt* to install a much longer list of add-ons than Mozilla's Fenix version of Firefox accepts. Currently the browser queries [this AMO collection](https://addons.mozilla.org/en-US/firefox/collections/16201230/What-I-want-on-Fenix/) **Most of them will not work**, because they depend on code that Mozilla is still working on writing in `android-components`, but you may attempt to install them. If you don't see an add-on you want, you can [request it](https://github.com/fork-maintainers/iceraven-browser/issues/new).
-  * **No warranties or guarantee of security or updates**. Binaries are currently are manually built and are not meaningfully signed. Why should you trust random people on the Internet to provide your web browser, one of the most important pieces of software you use? Iceraven Browser could not exist without the hardworking folks at the Mozilla Corporation who work on the Mozilla Android Components and Firefox projects, but it is not a Mozilla product, and is not provided, endorsed, vetted, approved, or secured by Mozilla.
+  * The ability to *attempt* to install a much longer list of add-ons than Mozilla's Fenix version of Firefox accepts. Currently the browser queries [this AMO collection](https://addons.mozilla.org/en-GB/firefox/collections/15224675/My-Fenix-List/). You can use your own add-ons collection by changing the settings in the Customize menu screen.
+  * **No warranties or guarantee of security or updates**. Binaries are currently are manually built and are not meaningfully signed. Why should you trust random people on the Internet to provide your web browser, one of the most important pieces of software you use? Firefox² could not exist without the hardworking folks at the Mozilla Corporation who work on the Mozilla Android Components and Firefox projects, but it is not a Mozilla product, and is not provided, endorsed, vetted, approved, or secured by Mozilla.
 
-In addition, we intend to try to cut down on telemetry and proprietary code to as great of an extent as possible as long as doing so does not compromise the user experience or make the fork too hard to maintain. Right now, webelieve that no telemetry should be being sent to Mozilla anymore, but we cannot guarantee this; data may still be sent. **If you catch the app sending data to Mozilla, Adjust, Leanplum, Firebase, or any other such service, please open an issue!** Presumably data that reaches Mozilla is governed by Mozilla's privacy policy, but as Iceraven Browser is, again **not a Mozilla product**, we can make no promises.
+In addition, we intend to try to cut down on telemetry and proprietary code to as great of an extent as possible as long as doing so does not compromise the user experience or make the fork too hard to maintain. Right now, we believe that no telemetry should be being sent to Mozilla anymore, but we cannot guarantee this; data may still be sent. **If you catch the app sending data to Mozilla, Adjust, Leanplum, Firebase, or any other such service, please open an issue!** Presumably data that reaches Mozilla is governed by Mozilla's privacy policy, but as Firefox² is, again **not a Mozilla product**, we can make no promises.
 
-Iceraven Browser combines the power of Fenix (of which we are a fork) and the spirit of Fennec, with a respectful nod toward the grand tradition of Netscape Navigator, from which all Gecko-based projects came, including the earliest of our predecessors, the old Mozilla Phoenix and Mozilla Firefox desktop browsers.
+Firefox² combines the power of Fenix (of which we are a fork) and the spirit of Fennec, with a respectful nod toward the grand tradition of Netscape Navigator, from which all Gecko-based projects came, including the earliest of our predecessors, the old Mozilla Phoenix and Mozilla Firefox desktop browsers.
 
-That said, Iceraven Browser is an independent all-volunteer project, and has no affiliation with Netscape, Netscape Navigator, Mozilla, Mozilla Firefox, Mozila Phoenix, Debian, Debian Iceweasel, Parabola GNU/Linux-libre Iceweasel, America Online, or Verizon, among others. :)  Basically, if you don't like the browser, it's not their fault. :)
-
-## Installation
-
-[**Download APKs from the Releases Page**](https://github.com/fork-maintainers/iceraven-browser/releases)
+That said, Firefox² is an independent all-volunteer project, and has no affiliation with Netscape, Netscape Navigator, Mozilla, Mozilla Firefox, Mozila Phoenix, Debian, Debian Iceweasel, Parabola GNU/Linux-libre Iceweasel, America Online, or Verizon, among others. :)  Basically, if you don't like the browser, it's not their fault. :)
 
 ## Building
 
@@ -32,7 +28,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export ANDROID_SDK_ROOT=$HOME/android-sdk/android-sdk-linux/
 ```
 
-If we don't have the Android SDK, we can install it thusly on Linux:
+If you don't have the Android SDK, we can install it on Linux as follows:
 
 ```sh
 mkdir -p $HOME/android-sdk/android-sdk-linux
@@ -51,13 +47,13 @@ cd ..
 2. Clone the project.
 
 ```sh
-git clone https://github.com/fork-maintainers/iceraven-browser
+git clone https://github.com/abhijitvalluri/firefox2
 ```
 
-4. Go inside `iceraven-browser`. That's where the build is coordinated from.
+4. Go inside `firefox2` folder. That's where the build is coordinated from.
 
 ```sh
-cd iceraven-browser
+cd firefox2
 ```
 
 5. Configure the project. We need to set the release builds to be signed with the debug key, because proper code signing isn't set up yet and the completely unsigned APKs that are produced by default cannot be installed.
@@ -66,7 +62,7 @@ cd iceraven-browser
 echo "autosignReleaseWithDebugKey=" >>local.properties
 ```
 
-6. Build the project. To build the Iceraven-branded release APKs, you can do:
+6. Build the project. To build the Firefox²-branded release APKs, you can do:
 
 ```sh
 ./gradlew assembleForkRelease -PversionName="$(git describe --tags HEAD)"

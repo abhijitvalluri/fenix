@@ -2,10 +2,10 @@ name: Android build
 on:
   push:
     branches:
-      - fork
+      - reforked
   pull_request:
     branches:
-      - fork
+      - reforked
 jobs:
   run-build:
     runs-on: ubuntu-latest
