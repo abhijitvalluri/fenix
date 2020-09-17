@@ -29,6 +29,6 @@ class OnboardingHeaderViewHolderTest {
     fun `bind header text`() {
         OnboardingHeaderViewHolder(view)
 
-        assertEquals("Welcome to Iceraven Preview!", view.header_text.text)
+        assertEquals("Welcome to Firefox² Preview!", view.header_text.text)
     }
 }
