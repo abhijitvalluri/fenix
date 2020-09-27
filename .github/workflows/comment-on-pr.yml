@@ -2,7 +2,7 @@ name: Comment on PR with link to checks page
 on:
   pull_request_target:
     branches:
-      - fork
+      - reforked
     types: [opened]
 jobs:
   comment:
