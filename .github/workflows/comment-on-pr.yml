@@ -11,5 +11,11 @@ jobs:
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@master
         with:
-          message: 'Example of message !'
+          message: |
+            ### Download the built apks
+            You can download the apks built by Github actions after the CI checks pass.
+            Please go to the <a href="https://github.com/abhijitvalluri/firefox2/pull/${{ github.event.number }}/checks>checks page of this PR</a>
+            to find the zipped apk files under the artifacts drop-down, as seen in the example screenshot below.
+
+            <img src="https://raw.githubusercontent.com/abhijitvalluri/firefox2/reforked/.github/imgs/download-artifacts-screenshot.png" />
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
