@@ -8,12 +8,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Test tag
-        run: "echo ref = ${{ github.event.ref }}"
+      - name: Create changelog
+        run: |
+          PREVIOUS_RELEASE_TAG=$(git tag --list iceraven-* --sort=-creatordate | tail -n+2 | head -n 1)
+          CHANGE_LOG_TEXT=$(git log ${{ github.event.ref }}...$PREVIOUS_RELEASE_TAG --pretty='format:%C(auto)%h (%as) %s')
+          echo '::set-env name=CHANGE_LOG::$CHANGE_LOG_TEXT'
       - name: Release test
         uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
-          body: "Test body"
+          draft: false
+          name: "Version ${{ github.event.ref }}"
+          body: >
+            ## Automated release of version ${{ github.event.ref }} browser
+            This is an automated release, consisting of the following changes:
+
+            ### Change log (commit history since previous release)
+            ${{ env.CHANGE_LOG }}
+          gzip: false
           files: README.md
+          allow_override: false
