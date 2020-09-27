@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Comment on PR with link to checks page
-      - uses: mshick/add-pr-comment@v1
+        uses: mshick/add-pr-comment@v1
         with:
           message: |
             ### Download the built apks
