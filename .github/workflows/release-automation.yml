@@ -1,0 +1,19 @@
+name: Release Automation
+on:
+  create:
+jobs:
+  run-build:
+    runs-on: ubuntu-latest
+    if: "contains(toJSON(github.event.ref_type), 'tag') && contains(toJSON(github.event.ref), 'iceraven')"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Test tag
+        run: "echo ref = ${{ github.event.ref }}"
+      - name: Release test
+        uses: meeDamian/github-release@2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          body: "Test body"
+          files: README.md
