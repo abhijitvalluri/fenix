@@ -24,7 +24,7 @@ jobs:
           wrapper-cache-enabled: true
           dependencies-cache-enabled: true
           configuration-cache-enabled: true
-          arguments: assembleForkRelease -PversionName="${{ env.VERSION_NAME }}"
+          arguments: assembleForkRelease -PversionName=${{ env.VERSION_NAME }}
       - name: Archive everything
         uses: actions/upload-artifact@v2
         with:
